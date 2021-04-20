@@ -6,6 +6,7 @@ from django.db import transaction
 from .models import State
 from .serialization import StateSerializer
 
+
 def state_list(request):
     query = State.objects.all()
     response = HttpResponse()
@@ -128,6 +129,7 @@ def state_update_by_pk(request, pk):
         content_type='application/json', 
         content=json.dumps(result) if result else ''
     )
+
 
 def state_index(request):
     response = None
