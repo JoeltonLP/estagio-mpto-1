@@ -1,0 +1,36 @@
+@baseURL = http://127.0.0.1:8000
+@resource = legal-person
+
+###
+# @name all
+GET {{baseURL}}/api/{{resource}}
+
+###
+# @name create
+POST {{baseURL}}/api/{{resource}}
+Content-Type: application/json
+
+{
+    "name": "Empresa 3",
+    "city_id": 3,
+    "cnpj": "1236",
+    "fantasy_name": "Empresa de Teste 3"
+}
+
+###
+# @name getOne
+GET {{baseURL}}/api/{{resource}}/1
+
+
+###
+# @name update
+PUT {{baseURL}}/api/{{resource}}/1
+Content-Type: application/json
+
+{
+    "cnpj": "1235"
+}
+
+###
+# @name deleteOne
+DELETE {{baseURL}}/api/{{resource}}/3
