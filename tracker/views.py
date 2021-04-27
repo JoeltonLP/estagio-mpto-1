@@ -1,6 +1,7 @@
 from helpers import restfy
 from .serializers import (
     LegalPersonSerializer,
+    PackageContainerSerializer,
     PersonSerializer,
     StateSerializer, 
     CitySerializer, 
@@ -8,6 +9,10 @@ from .serializers import (
 )
 
 
+(
+    package_container_index, 
+    package_container_by_id
+) = restfy.make_rest(PackageContainerSerializer)
 person_index, person_by_id = restfy.make_rest(
     PersonSerializer,
     allow_create=False, 

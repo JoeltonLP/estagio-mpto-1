@@ -1,5 +1,5 @@
 @baseURL = http://127.0.0.1:8000
-@resource = legal-person
+@resource = packages
 
 ###
 # @name all
@@ -11,26 +11,26 @@ POST {{baseURL}}/api/{{resource}}
 Content-Type: application/json
 
 {
-    "name": "Empresa 3",
-    "city_id": 3,
-    "cnpj": "1236",
-    "fantasy_name": "Empresa de Teste 3"
+    "sender_id": 1,
+    "destination_id": 2,
+    "weight": 1.5,
+    "volume": 5
 }
 
 ###
 # @name getOne
-GET {{baseURL}}/api/{{resource}}/1
+GET {{baseURL}}/api/{{resource}}/3
 
 
 ###
 # @name update
-PUT {{baseURL}}/api/{{resource}}/2
+PUT {{baseURL}}/api/{{resource}}/3
 Content-Type: application/json
 
 {
-    "city_id": 1
+    "delivery_state": 1
 }
 
 ###
 # @name deleteOne
-DELETE {{baseURL}}/api/{{resource}}/3
+DELETE {{baseURL}}/api/{{resource}}/1
