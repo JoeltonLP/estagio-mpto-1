@@ -41,5 +41,9 @@ POST {{baseURL}}/api/{{resource}}/7f31b5ee/log
 Content-Type: application/json
 
 {
-    "city_id": 4
+    "city_id": 5
 }
+
+###
+# @name listLog
+GET {{baseURL}}/api/{{resource}}/7f31b5ee/log
