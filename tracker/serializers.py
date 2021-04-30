@@ -1,5 +1,6 @@
 from helpers.serializer import BaseSerializer
 from .models import (
+    LogTrace,
     PackageContainer,
     State, 
     City, 
@@ -107,6 +108,22 @@ class CitySerializer(BaseSerializer):
         result.update(
             name=instance.name,
             state=StateSerializer.encode(instance.state)
+        )
+
+        return result
+
+
+class LogTraceSerializer(BaseSerializer):
+
+    _model = LogTrace
+
+    @classmethod
+    def encode(cls, instance):
+        result = super().encode(instance)
+
+        result.update(
+            city=CitySerializer.encode(instance.city),
+            when=str(instance.when)
         )
 
         return result
