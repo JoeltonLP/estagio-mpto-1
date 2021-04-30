@@ -74,9 +74,7 @@ class PackageContainer(models.Model):
         choices=(
             (1, 'Na origem'),
             (2, 'Em trânsito'),
-            (3, 'No destino'),
-            (4, 'Entregue'),
-            (5, 'Extraviado')
+            (3, 'Entregue'),
         ),
         default=1
     )
@@ -113,3 +111,13 @@ class LogTrace(models.Model):
         on_delete=City
     )
     when = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if self.city == self.package_container.sender_city:
+            self.package_container.delivery_state = 1
+        elif self.city == self.package_container.destination_city:
+            self.package_container.delivery_state = 3
+        else:
+            self.package_container.delivery_state = 2
+
+        super().save(*args, **kwargs)
