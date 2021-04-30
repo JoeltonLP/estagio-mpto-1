@@ -36,14 +36,14 @@ Content-Type: application/json
 DELETE {{baseURL}}/api/{{resource}}/1
 
 ###
-# @name RegisterLog
-POST {{baseURL}}/api/{{resource}}/7f31b5ee/log
+# @name registerLog
+POST {{baseURL}}/api/{{resource}}/c1efccb3/log
 Content-Type: application/json
 
 {
-    "city_id": 5
+    "city_id": 1
 }
 
 ###
 # @name listLog
-GET {{baseURL}}/api/{{resource}}/7f31b5ee/log
+GET {{baseURL}}/api/{{resource}}/c1efccb3/log
